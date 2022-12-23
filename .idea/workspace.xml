@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd5afb9-cfc4-420b-a4ed-454f97319fae" name="Changes" comment="decrypt">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bingyan/TaskImpl.java" afterDir="false" />
+    <list default="true" id="8bd5afb9-cfc4-420b-a4ed-454f97319fae" name="Changes" comment="Revert &quot;decrypt&quot;&#10;&#10;This reverts commit 4f3bc55d">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bingyan/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bingyan/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/TaskTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/TaskTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +22,22 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
-        <option value="Kotlin Class" />
         <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -38,25 +48,7 @@
         <option value="Xeu" />
       </list>
     </option>
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="hzy" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="98fa62f6-b22a-4b6a-8b32-c9cbfee7f20b" />
-        <option name="url" value="https://github.com/BingyanMobile/2022AutumnTask" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -166,8 +158,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.TaskTest" />
-        <item itemvalue="Gradle.TaskTest.test" />
         <item itemvalue="Gradle.TaskTest.generate" />
+        <item itemvalue="Gradle.TaskTest.test" />
       </list>
     </recent_temporary>
   </component>
@@ -209,21 +201,7 @@
       <option name="project" value="LOCAL" />
       <updated>1671717843999</updated>
     </task>
-    <task id="LOCAL-00005" summary="encrypt">
-      <created>1671770113487</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1671770113487</updated>
-    </task>
-    <task id="LOCAL-00006" summary="decrypt">
-      <created>1671775511404</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1671775511404</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +218,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="origin/hzy" />
                       </list>
                     </value>
                   </entry>
@@ -259,9 +237,7 @@
     <MESSAGE value="init commit" />
     <MESSAGE value="Changes" />
     <MESSAGE value="init" />
-    <MESSAGE value="encrypt" />
-    <MESSAGE value="decrypt" />
-    <option name="LAST_COMMIT_MESSAGE" value="decrypt" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
