@@ -11,6 +11,7 @@ public class Task {
         Scanner scanner = new Scanner(file);
         String origin = scanner.next();
         int len = origin.length();
+        char[] edit = origin.toCharArray();
         int i, step;
         if (offset > 0) {
             step = offset % 26;
@@ -20,32 +21,43 @@ public class Task {
             return origin;
         }
         for (i = 0; i < len; i++) {
-            char ch = origin.charAt(i);
-            if (ch >= 'a' && ch <= 'z') {
-                ch += step;
-                if (ch > 'z') {
-                    ch -= 26;
+            if (edit[i] >= 'a' && edit[i] <= 'z') {
+                edit[i] += step;
+                if (edit[i] > 'z') {
+                    edit[i] -= 26;
                 }
-            } else if (ch >= 'A' && ch <= 'Z') {
-                ch += step;
-                if (ch > 'Z') {
-                    ch -= 26;
+            } else if (edit[i] >= 'A' && edit[i] <= 'Z') {
+                edit[i] += step;
+                if (edit[i] > 'Z') {
+                    edit[i] -= 26;
                 }
             }
         }
+        origin = String.copyValueOf(edit);
         return origin;
     }
 
     public Pair<Integer, String> decrypt(File file, String keyword) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
         String verify = scanner.next();
+        char[] edit = verify.toCharArray();
         int len = verify.length();
         int i, j, offset = 0;
-        for (i = 0; i < 26; i++) {
+        for (i = 1; i <= 26; i++) {
             for (j = 0; j < len; j++) {
-                char ch = verify.charAt(i);
-                ch += i;
+                if (edit[j] >= 'a' && edit[j] <= 'z') {
+                    edit[j] += 1;
+                    if (edit[j] > 'z') {
+                        edit[j] -= 26;
+                    }
+                } else if (edit[j] >= 'A' && edit[j] <= 'Z') {
+                    edit[j] += 1;
+                    if (edit[j] > 'Z') {
+                        edit[j] -= 26;
+                    }
+                }
             }
+            verify = String.copyValueOf(edit);
             if (verify.contains(keyword)) {
                 offset = i;
                 break;

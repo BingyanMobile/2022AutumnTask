@@ -22,11 +22,11 @@ class TaskTest {
         val result = task.encrypt(File(folder, name), offset)
         val expect = File(folder2, name).readText()
         assertEquals(expect, result)
+        val expect2 = File(folder, name).readText()
         val result2 = task.decrypt(
             File(folder2, name),
-            expect.take(20)
+            expect2.take(20)
         )
-        val expect2 = File(folder, name).readText()
         val bestOffset = File(folder3, name).readText().toInt(10)
         assertEquals(expect2, result2.value)
         assert((bestOffset - result2.key) % 26 == 0)
