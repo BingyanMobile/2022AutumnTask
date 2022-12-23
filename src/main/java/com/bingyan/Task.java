@@ -29,6 +29,7 @@ public class Task {
         } catch (IOException e) {
             System.out.print("Exception");
         }
+        assert originString != null;
         char[] originCharArray = originString.toCharArray(), result = new char[size];
         for (int i = 0; i < size; ++i) {
             if (originCharArray[i] >= 'a' && originCharArray[i] <= 'z')
@@ -64,6 +65,7 @@ public class Task {
         }
 //        System.out.println(encryptedString);
 //        System.out.println(keyword);
+        assert encryptedString != null;
         char[] encryptedCharArray = encryptedString.toCharArray(), keywordCharArray = keyword.toCharArray();
         int len = keyword.length();
         int[] differenceEncrypted = new int[size], differenceKeyword = new int[len];
