@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.util.Arrays;
 
 public class Task {
     /**
@@ -63,8 +62,8 @@ public class Task {
         } catch (IOException e) {
             System.out.print("Exception");
         }
-        System.out.println(encryptedString);
-        System.out.println(keyword);
+//        System.out.println(encryptedString);
+//        System.out.println(keyword);
         char[] encryptedCharArray = encryptedString.toCharArray(), keywordCharArray = keyword.toCharArray();
         int len = keyword.length();
         int[] differenceEncrypted = new int[size], differenceKeyword = new int[len];
@@ -72,12 +71,11 @@ public class Task {
             differenceEncrypted[i] = encryptedCharArray[i] - encryptedCharArray[i - 1];
         for (int i = 1; i < len; ++i)
             differenceKeyword[i] = keywordCharArray[i] - keywordCharArray[i - 1];
-        System.out.println(Arrays.toString(differenceKeyword));
         int position = size;
         for (int i = 0; i <= size - len; ++i) {
             boolean findKeywordPosition = true;
-            for (int j = 1; j < len; j++)
-                if (differenceKeyword[j] != differenceEncrypted[i + j]) {
+            for (int j = 1; j < len; ++j)
+                if ((differenceKeyword[j] - differenceEncrypted[i + j]) % 26 != 0) {
                     findKeywordPosition = false;
                     break;
                 }
@@ -86,13 +84,13 @@ public class Task {
                 break;
             }
         }
-        int offset = (encryptedCharArray[position] - keywordCharArray[position]) % 26;
+        int offset = (encryptedCharArray[position] - keywordCharArray[0]) % 26;
         if (offset > 13)
             offset -= 26;
         if (offset < -13)
             offset += 26;
-        System.out.println(offset);
-        System.out.println(position);
+//        System.out.println(offset);
+//        System.out.println(position);
         char[] result = new char[size];
         for (int i = 0; i < size; ++i) {
             if (encryptedCharArray[i] >= 'a' && encryptedCharArray[i] <= 'z')
