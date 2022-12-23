@@ -1,35 +1,61 @@
 package com.bingyan;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import javafx.util.Pair;
 
-import java.io.File;
-
 public class Task {
-    /**
-     * 将指定文件的内容使用凯撒密码，后移用户指定位数
-     * 不修改文件，直接返回加密结果
-     *
-     * @param file   指定的文件
-     * @param offset 指定的偏移量
-     * @return String 加密结果
-     */
-    public String encrypt(File file, int offset) {
-        return null;
+    public String encrypt(File file, int offset) throws FileNotFoundException {
+        Scanner scanner = new Scanner(file);
+        String origin = scanner.next();
+        int len = origin.length();
+        int i, step;
+        if (offset > 0) {
+            step = offset % 26;
+        } else if (offset < 0) {
+            step = 26 - (-offset % 26);
+        } else {
+            return origin;
+        }
+        for (i = 0; i < len; i++) {
+            char ch = origin.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                ch += step;
+                if (ch > 'z') {
+                    ch -= 26;
+                }
+            } else if (ch >= 'A' && ch <= 'Z') {
+                ch += step;
+                if (ch > 'Z') {
+                    ch -= 26;
+                }
+            }
+        }
+        return origin;
     }
 
-    /**
-     * 将指定的文件内容进行暴力破解
-     * 已知正确破解后内容中包含用户指定的字符串
-     * 返回一个Map.Entry<Integer,String>对象
-     * Integer为正确破解的偏移量，负数代表左移，正数代表右移
-     * String为正确解密的内容。
-     *
-     * @param file    指定的文件
-     * @param keyword 正确破解后包含的字符串
-     * @return Map.Entry<正确破解的偏移量, 正确破解后的字符串>
-     */
-    public Pair<Integer, String> decrypt(File file, String keyword) {
-        return new Pair<>(0, null);
+    public Pair<Integer, String> decrypt(File file, String keyword) throws FileNotFoundException {
+        Scanner scanner = new Scanner(file);
+        String verify = scanner.next();
+        int len = verify.length();
+        int i, j, offset = 0;
+        for (i = 0; i < 26; i++) {
+            for (j = 0; j < len; j++) {
+                char ch = verify.charAt(i);
+                ch += i;
+            }
+            if (verify.contains(keyword)) {
+                offset = i;
+                break;
+            }
+        }
+        if (offset >= 13) {
+            offset = 26 - offset;
+        }
+        Integer Offset = new Integer(offset);
+        return new Pair<Integer, String>(Offset, verify);
     }
 
 }
