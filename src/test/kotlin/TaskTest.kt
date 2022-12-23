@@ -2,18 +2,17 @@ import com.bingyan.Task
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.io.File
-import kotlin.random.Random
 
 class TaskTest {
-//    @Test
-//    fun test() {
-//        println("运行测试用例")
-//        val task = Task()
-//        val folder = File("case")
-//        folder.list()?.forEach {
-//            unit(task,it)
-//        }
-//    }
+    @Test
+    fun test() {
+        println("运行测试用例")
+        val task = Task()
+        val folder = File("case")
+        folder.list()?.forEach {
+            unit(task, it)
+        }
+    }
 
     fun unit(task: Task, name: String) {
         val folder = File("case")
@@ -35,28 +34,30 @@ class TaskTest {
             System.err.println("[Unit Test]Case $name:Offset not best,expect:$bestOffset,actual:${result2.key}")
         }
     }
+    /*
+        @Test
+        fun generate() {
+            val folder = File("case")
+            val folder2 = File("verify")
+            val folder3 = File("offset")
+            try {
+                folder.mkdir()
+                folder2.mkdir()
+                folder3.mkdir()
+            } catch (_: Exception) {
+            }
+            for (i in 0..100) {
+                val file = File(folder, i.toString(10) + ".txt")
+                val file2 = File(folder2, i.toString(10) + ".txt")
+                val file3 = File(folder3, i.toString(10) + ".txt")
+                val content = randomContent()
+                val offset = Random.nextInt(-100, 100)
+                file.writeText(content)
+                file2.writeText(encrypt(content, offset))
+                file3.writeText(offset.toString(10))
+                println("${i}:${offset}")
+            }
+        }
 
-    @Test
-    fun generate() {
-        val folder = File("case")
-        val folder2 = File("verify")
-        val folder3 = File("offset")
-        try {
-            folder.mkdir()
-            folder2.mkdir()
-            folder3.mkdir()
-        } catch (_: Exception) {
-        }
-        for (i in 0..100) {
-            val file = File(folder, i.toString(10) + ".txt")
-            val file2 = File(folder2, i.toString(10) + ".txt")
-            val file3 = File(folder3, i.toString(10) + ".txt")
-            val content = randomContent()
-            val offset = Random.nextInt(-100, 100)
-            file.writeText(content)
-            file2.writeText(encrypt(content, offset))
-            file3.writeText(offset.toString(10))
-            println("${i}:${offset}")
-        }
-    }
+    */
 }
